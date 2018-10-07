@@ -1,0 +1,25 @@
+version: '3'
+services:
+  nginx:
+    build: ./frontend
+    container_name: ng1
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+  web:
+    build: ./api
+    container_name: dg1
+    ports:
+      - "8000:8000"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn root.wsgi -b 0.0.0.0:8000"
+    depends_on:
+      - db
+    volumes:
+      - ./api/src:/src
+    expose:
+      - "8000"
+    
+  db:
+    image: postgres:latest
+    container_name: ps1
