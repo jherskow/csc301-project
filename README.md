@@ -13,7 +13,7 @@ This project uses the following:
 + Gunicorn
 + Postgres
 
-We are running everything using docker ( which runs several containers in parallel ). You can think of container as a smaller virtual machine. Each container is a own machine ( has their own IP ). Container can communicate with each other through PORT. We use docker-compose to coordinate the connection. 
+We are running everything using docker ( which runs several containers in parallel ). You can think of container as a smaller virtual machine. Each container is a own machine ( has their own IP ). Container can communicate with each other through PORT. We use docker-compose to coordinate these connections. 
 
 ![](https://cdn.filestackcontent.com/rJf1U9MTraWZDCJWjQoE)
 
@@ -51,19 +51,26 @@ For starter:
 3.  Install [Docker](https://docs.docker.com/install/#get-started)
     ( Note: docker-compose comes with Docker for Windows and Mac except [Linux](https://docs.docker.com/compose/install/) )
 
-4.  To build the project
+4.  Build the project ( Only for the first time or if you need to rebuild any images )
     ~~~~
     (csc301-project)
     docker-compose build
-    docker-compose -d
+    docker-compose up -d
     ~~~~
 
-5.  To run the project
+5.  Run the project
     ~~~~
     (csc301-project)
     docker-compose up
     ~~~~
-    
-6.  To stop the docker, hit CTRL + Z on your keyboard.
+
+6.  Finally, open your browser and go to http://(your-machine-ip/80). The web application should be running.
+    To check your own IP address
+    ~~~~
+    docker-machine ip
+    ~~~~
+
+7.  To stop the docker, hit CTRL + Z on your keyboard.
+
 
 ## More later..
