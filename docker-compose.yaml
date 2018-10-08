@@ -7,6 +7,8 @@ services:
       - "80:80"
     depends_on:
       - web
+    volumes:
+      - ./frontend/build:/usr/share/nginx/html
   web:
     build: ./api
     container_name: dg1
@@ -22,4 +24,8 @@ services:
     
   db:
     image: postgres:latest
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
     container_name: ps1

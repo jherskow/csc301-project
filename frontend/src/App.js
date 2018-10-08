@@ -17,6 +17,9 @@ class App extends Component {
             link: undefined,
             response: undefined
         };
+        this.sendData = this.sendData.bind(this);
+        this.onEnterPress = this.onEnterPress.bind(this);
+        this.setTextValue = this.setTextValue.bind(this);
     };
 
     sendData() {
@@ -52,13 +55,12 @@ class App extends Component {
                 <div className="centerize">
                     <Paper zDepth={1} className="content">
                         <h2>Welcome to BalanceCheck</h2>
-                        {responseComponent}
                         <TextField 
-                        onKeyUp={this.onEnterPress.bind(this)}
+                        onKeyUp={this.onEnterPress}
                         onChange={this.setTextValue}
                         placeholder="Enter any URL or link"/>
-                        <Button style={style} onClick={this.sendData.bind(this)}>Go</Button>
-                        
+                        <Button style={style} onClick={this.sendData}>Go</Button>
+                        {responseComponent}
                     </Paper>
                 </div>
             </MuiThemeProvider>

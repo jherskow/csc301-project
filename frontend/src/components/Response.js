@@ -8,7 +8,7 @@ class Responce extends Component {
     };
 
     render() {
-        return <div>Data received: "{this.props.data}" </div>
+        return <div>Data received: {this.props.data} </div>
     }
 }
 
